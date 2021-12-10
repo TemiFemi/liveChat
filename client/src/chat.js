@@ -22,7 +22,7 @@ function Chat({ socket, username, room }) {
         })
     }, [socket])
     return (
-        <div>
+        <div className="chat-window">
             <div className="chat-header"> </div>
             <p> Live Chat </p>
             <div className="chat-body"> </div>
