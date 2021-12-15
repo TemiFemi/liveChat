@@ -13,7 +13,7 @@ function App() {
   const joinRoom = () => {
     if (username !== "" && room !== "") {
       socket.emit("join_room", room);
-      // eslint-disable-next-line no-undef
+      setShowChat(true);
     }
   }
   return (
