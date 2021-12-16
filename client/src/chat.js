@@ -15,6 +15,7 @@ function Chat({ socket, username, room }) {
                     new Date(Date.now()).getMinutes()
             }
             await socket.emit("send_message", messageData);
+            setMessageList((list) => [...list, messageData])
         }
     };
 
@@ -22,7 +23,7 @@ function Chat({ socket, username, room }) {
         socket.on("receive_message", (data) => {
             setMessageList((list) => [...list, data]);
         });
-    }, [socket])
+    }, [socket]);
     return (
         <div className="chat-window">
             <div className="chat-header">
