@@ -32,8 +32,7 @@ function Chat({ socket, username, room }) {
             <div className="chat-body">
                 {messageList.map((messageContent) => {
                     return (
-                        <div className="message">
-                            {""}
+                        <div className="message" id={username === messageContent.author ? "you" : "other"}>
                             <div className="message-content">
                                 <p>{messageContent.message}</p> </div>
                             <div className="message-meta">
@@ -45,15 +44,16 @@ function Chat({ socket, username, room }) {
                     );
                 })}
             </div>
-            <div className="chat-footer"> </div>
-            <input
-                type="text"
-                value={currentMessage}
-                placeholder="Hey.."
-                onChange={(event) => {
-                    setCurrentMessage(event.target.value);
-                }}
-            />
+            <div className="chat-footer">
+                <input
+                    type="text"
+                    value={currentMessage}
+                    placeholder="Hey.."
+                    onChange={(event) => {
+                        setCurrentMessage(event.target.value);
+                    }}
+                />
+            </div>
             <button onClick={sendMessage}>&#9658;</button>
         </div>
     )
