@@ -29,10 +29,22 @@ function Chat({ socket, username, room }) {
             <div className="chat-header">
                 <p> Live Chat </p>
             </div>
-            <div className="chat-body"> </div>
-            {messageList.map((messageContent) => {
-                return <h1>{messageContent.message}</h1>
-            })}
+            <div className="chat-body">
+                {messageList.map((messageContent) => {
+                    return (
+                        <div className="message">
+                            {""}
+                            <div className="message-content">
+                                <p>{messageContent.message}</p> </div>
+                            <div className="message-meta">
+                                <p>{messageContent.time}</p>
+                                <p>{messageContent.author}</p>
+                            </div>
+                        </div>
+
+                    );
+                })}
+            </div>
             <div className="chat-footer"> </div>
             <input
                 type="text"
